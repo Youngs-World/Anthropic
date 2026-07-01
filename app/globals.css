@@ -1,0 +1,114 @@
+/* ============================================================
+   Anthropic-brand design tokens.
+   Warm ivory ground, clay/coral accent, editorial serif for
+   display + clean grotesque for text. One source of truth —
+   every component reads from these variables.
+   ============================================================ */
+
+:root {
+  /* ground + surfaces (warm) */
+  --bg: #f3efe6;
+  --bg-deep: #ece7db;
+  --surface: #fbf9f4;
+  --surface-2: #f5f1e8;
+  --surface-3: #efeade;
+  --border: #e4ddce;
+  --border-strong: #d6ccb7;
+
+  /* ink (warm near-black) */
+  --text: #1b1813;
+  --text-muted: #6c6555;
+  --text-faint: #948b76;
+
+  /* clay / coral accent (Anthropic) */
+  --accent: #cc785c;
+  --accent-deep: #b15c3d;
+  --accent-soft: rgba(204, 120, 92, 0.13);
+  --accent-line: rgba(204, 120, 92, 0.28);
+
+  /* supporting hues for data-viz */
+  --sky: #6a94b8;
+  --sage: #7c9271;
+  --gold: #d3a24a;
+
+  --shadow: 0 30px 60px -34px rgba(60, 46, 32, 0.30);
+  --shadow-soft: 0 10px 30px -16px rgba(60, 46, 32, 0.22);
+
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 18px;
+  --r-xl: 26px;
+  --r-pill: 999px;
+
+  --font-serif: var(--font-newsreader), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, "SF Mono", Menlo, monospace;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --maxw: 1080px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html, body { margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100dvh;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.08;
+  margin: 0;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+::selection { background: var(--accent-soft); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+/* faint paper grain via layered gradients (very subtle, "made by hand") */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(1200px 700px at 82% -6%, rgba(204, 120, 92, 0.06), transparent 60%),
+    radial-gradient(900px 600px at 6% 108%, rgba(124, 146, 113, 0.05), transparent 55%);
+}
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+.serif { font-family: var(--font-serif); }
+.mono { font-family: var(--font-mono); }
+
+.eyebrow {
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+}
+
+.lens-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+@media (min-width: 720px) { .lens-grid { grid-template-columns: repeat(2, 1fr); } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
