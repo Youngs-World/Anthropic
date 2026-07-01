@@ -104,6 +104,14 @@ body::before {
 .lens-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
 @media (min-width: 720px) { .lens-grid { grid-template-columns: repeat(2, 1fr); } }
 
+.tnum { font-variant-numeric: tabular-nums; }
+.metrics-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px 26px; }
+@media (min-width: 780px) { .metrics-grid { grid-template-columns: repeat(5, 1fr); } }
+.skills-grid { display: grid; grid-template-columns: 1fr; gap: 15px 44px; }
+@media (min-width: 720px) { .skills-grid { grid-template-columns: repeat(2, 1fr); } }
+.tl-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+@media (min-width: 780px) { .tl-grid { grid-template-columns: repeat(4, 1fr); gap: 22px; } }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
