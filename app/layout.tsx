@@ -20,8 +20,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} ${newsreader.variable} ${mono.variable}`}>{children}</body>
+    <html lang="en" className={`${inter.variable} ${newsreader.variable} ${mono.variable}`}>
+      <body>{children}</body>
     </html>
   );
 }
